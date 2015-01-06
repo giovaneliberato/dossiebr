@@ -1,0 +1,4 @@
+tekton==4.2
+gaecookie==0.7
+gaepermission==0.11
+gaegraph==3.4.1
