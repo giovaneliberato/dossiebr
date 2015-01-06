@@ -7,9 +7,11 @@ cd $(dirname $0) && cd ..
 pip install -r venv/requirements.txt --download-cache=/var/tmp
 
 if [ ! -d lib ]; then
-    ln -s $VIRTUAL_ENV/lib/python2.7/site-packages/ appengine/lib
+    echo "Creating Lib symlink"
+    ln -s $VIRTUAL_ENV/lib/python2.7/site-packages/ src/lib
 fi
 
 if [ ! -d apps ]; then
-    ln -s ../apps appengine/apps
+    echo "Creating Apps symlink"
+    ln -s apps src/apps
 fi

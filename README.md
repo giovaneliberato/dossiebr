@@ -28,3 +28,5 @@ $ ./venv/setup_venv.sh
 ```shell
 $ ./runlocal.sh
 ```
+
+Now it's time to code. Core code goes inside apps folder and request handlers goes inside src/routes.
