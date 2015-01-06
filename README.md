@@ -4,7 +4,7 @@ Tekton Template App
 This is a simple app I use to quick start any project using [Tekton](https://github.com/renzon/tekton-micro) + Google App Engine
 
 #### Requirements
-- [virtualenvwrapper](virtualenvwrapper.readthedocs.org)
+- [virtualenvwrapper](http://virtualenvwrapper.readthedocs.org)
 
 ### Usage
 ##### Clone this repo
