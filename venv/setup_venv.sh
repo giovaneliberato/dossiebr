@@ -4,7 +4,11 @@ set -e  # If occur any error, exit
 
 cd $(dirname $0) && cd ..
 
+echo "Installing python requirements"
 pip install -r venv/requirements.txt --download-cache=/var/tmp
+
+echo "Installing bower requirements"
+bower install
 
 if [ ! -d lib ]; then
     echo "Creating Lib symlink"
