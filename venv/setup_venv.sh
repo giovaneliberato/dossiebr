@@ -10,12 +10,12 @@ pip install -r venv/requirements.txt --download-cache=/var/tmp
 echo "Installing bower requirements"
 bower install
 
-if [ ! -d lib ]; then
+if [ ! -d src/lib ]; then
     echo "Creating Lib symlink"
     ln -s $VIRTUAL_ENV/lib/python2.7/site-packages/ src/lib
 fi
 
-if [ ! -d apps ]; then
+if [ ! -d src/apps ]; then
     echo "Creating Apps symlink"
-    ln -s apps src/apps
+    ln -s $(pwd)/apps/ src/apps
 fi

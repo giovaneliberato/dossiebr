@@ -8,5 +8,7 @@ from gaepermission.decorator import login_not_required
 
 @no_csrf
 @login_not_required
-def index():
+def index(_logged_user):
+    if _logged_user:
+        return TemplateResponse({}, 'home.html')
     return TemplateResponse({}, 'landing.html')
