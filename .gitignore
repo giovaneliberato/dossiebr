@@ -7,3 +7,4 @@ __pycache__/
 
 src/static/vendors
 dev.appstore
+deploy.sh

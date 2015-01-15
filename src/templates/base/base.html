@@ -22,7 +22,7 @@
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'> 
     <!-- Global CSS -->
-    <link rel="stylesheet" href="/static/theme/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/vendors/bootstrap-css/css/bootstrap.min.css">
     <!-- Plugins CSS -->    
     <link rel="stylesheet" href="/static/theme/plugins/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="/static/theme/plugins/prism/prism.css">
@@ -34,6 +34,7 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
     {% block css %}{% endblock %}
     {% block js %}{% endblock %}
 
@@ -51,5 +52,23 @@
     </div>
 </header>
 {% block body %}{% endblock %}
+
+<script type="text/javascript" src="/static/theme/plugins/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/static/theme/plugins/jquery-migrate-1.2.1.min.js"></script>    
+<script type="text/javascript" src="/static/theme/plugins/jquery.easing.1.3.js"></script>   
+<script type="text/javascript" src="/static/theme/plugins/bootstrap/js/bootstrap.min.js"></script>     
+<script type="text/javascript" src="/static/theme/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script> 
+<script type="text/javascript" src="/static/theme/plugins/prism/prism.js"></script>    
+<script type="text/javascript" src="/static/theme/js/main.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-54979785-4', 'auto');
+  ga('send', 'pageview');
+
+</script>
 </body>
 </html>
