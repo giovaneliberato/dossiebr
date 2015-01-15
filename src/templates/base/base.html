@@ -12,40 +12,44 @@
     </div>
 {% endmacro %}
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
+<head>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>{% block title %}Tekton Boilerplate{% endblock %}</title>
-    <!-- Bootstrap -->
-
-    <link href="/static/vendors/bootstrap-css/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/static/css/default.css" rel="stylesheet">
-    <style>
-        .pad8 {
-            margin: 8px 15px;
-            color: #777
-        }
-    </style>
-    <script src="/static/vendors/bootstrap-css/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">    
+    <link rel="shortcut icon" href="favicon.ico">  
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'> 
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="/static/theme/plugins/bootstrap/css/bootstrap.min.css">
+    <!-- Plugins CSS -->    
+    <link rel="stylesheet" href="/static/theme/plugins/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="/static/theme/plugins/prism/prism.css">
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="/static/theme/css/styles.css">
+    <link id="theme-style" rel="stylesheet" href="/static/css/custom.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     {% block css %}{% endblock %}
     {% block js %}{% endblock %}
+
+    <title>{% block title %}doss.ie - Fiscalize seus candidatos{% endblock %}</title>
 </head>
 <body>
-<div class="navbar-wrapper">
-    <div class="navbar navbar-inverse navbar-static-top">
-        <div class="navbar-header">
-            <a href="/" class="navbar-brand">Tekton</a>
-        </div>
+<header id="header" class="header">  
+    <div class="container">            
+        <h1 class="logo pull-left">
+            <a class="scrollto" href="#promo">
+                <span class="logo-title">doss.ie</span>
+            </a>
+        </h1><!--//logo-->              
+        {% block header %}{% endblock header %}
     </div>
-</div>
+</header>
 {% block body %}{% endblock %}
 </body>
 </html>

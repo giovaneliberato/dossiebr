@@ -1,10 +1,87 @@
 {% extends 'base/base.html' %}
+
+{% block header %}
+    <nav id="main-nav" class="main-nav navbar-right" role="navigation">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button><!--//nav-toggle-->
+        </div><!--//navbar-header-->            
+        <div class="navbar-collapse collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active nav-item sr-only"><a class="scrollto" href="#home">Home</a></li>
+                <li class="nav-item"><a class="scrollto" href="#about">Como funciona?</a></li>
+                <li class="nav-item"><a href="#">Entrar</a></li>
+            </ul><!--//nav-->
+        </div><!--//navabr-collapse-->
+    </nav><!--//main-nav-->    
+{% endblock header %}
+
 {% block body %}
-    <div class="container text-center">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>It Works!</h1>
+    <section id="home" class="promo section offset-header">
+        <div class="container text-center">
+            <h2 class="title">doss<span class="highlight">.ie</span></h2>
+            <p class="intro">Salve as notícias dos políticos da sua região e receba um resumo perto das eleições.</p>
+            <div class="btns">
+                <a class="btn btn-cta-primary" href="">Cadastre-se</a>
             </div>
+            <ul class="meta list-inline"></ul>
         </div>
-    </div>
+    </section>
+    <section id="about" class="about section">
+        <div class="container">
+            <h2 class="title text-center">Como funciona?</h2>
+            <p class="intro text-center">O doss.ie é uma plataforma que te ajuda a fiscalizar as promessas e resultados do seu candidato. Aqui você pode arquivar e gerenciar as notícias de um determinado candidato e periodicamente recebe um resumo destas notícias por email.</p>
+            <div class="row">
+                <div class="item col-md-4 col-sm-6 col-xs-12">
+                    <div class="icon-holder">
+                        <i class="fa fa-users"></i>
+                    </div>
+                    <div class="content">
+                        <h3 class="sub-title">Gerencie seus candidatos</h3>
+                        <p>Organize os candidados que você votou, os candidatos da oposição e futuros concorrentes da maneira que você preferir.</p>
+                    </div><!--//content-->
+                </div><!--//item-->
+                <div class="item col-md-4 col-sm-6 col-xs-12">
+                    <div class="icon-holder">
+                        <i class="fa fa-paste"></i>
+                    </div>
+                    <div class="content">
+                        <h3 class="sub-title">Arquive notícias relacionadas</h3>
+                        <p>Arquive as notícias boas e ruins de cada candidato durante o mandato para não esquecer de nenhum fato na hora de decidir o próximo voto.</p>
+                    </div><!--//content-->
+                </div><!--//item-->
+                <div class="item col-md-4 col-sm-6 col-xs-12">
+                    <div class="icon-holder">
+                        <i class="fa fa-clock-o"></i>
+                    </div>
+                    <div class="content">
+                        <h3 class="sub-title">Receba resumos períodicos</h3>
+                        <p>Configure a periodicidade de seus resumos e receba as notícias por email, organizadas por candidatos ou categorias. Também é possível consultar as notícias direto do site.</p>
+                    </div><!--//content-->
+                </div><!--//item-->           
+                <div class="clearfix visible-md"></div>            
+            </div><!--//row-->            
+        </div><!--//container-->
+    </section><!--//about-->
+     <section id="contact" class="contact section has-pattern">
+        <div class="container">
+            <div class="contact-inner">
+                <div class="clearfix"></div>
+                <div class="info text-center">
+                    <h4 class="sub-title">Conecte-se</h4>
+                    <ul class="social-icons list-inline">
+                        <li><a href="" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                        <li class="last"><a href="mailto: giovaneliberato@gmail.com"><i class="fa fa-envelope"></i></a></li>              
+                    </ul>
+                </div><!--//info-->
+                <p class="text-center">doss.ie é um <a href="https://github.com/giovaneliberato/doss.ie">software livre</a> registrado pela licença GNU GPL v3.0</p>
+                <p class="text-center">Tema criado por: <a href="http://themes.3rdwavemedia.com/" target="_blank">Xiaoying Riley</a> at 3rd Wave Media</p>
+            </div><!--//contact-inner-->
+        </div><!--//container-->
+    </section>
 {% endblock %}
