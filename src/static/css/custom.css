@@ -1,0 +1,30 @@
+.ghost-button {
+  display: inline-block;
+  width: 200px;
+  padding: 8px;
+  color: #fff;
+  border: 1px solid #fff;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+  margin-left: 8px;
+  margin-right: 8px;
+  font-size: 24px;
+}
+
+.ghost-button:hover,
+.ghost-button:active {
+  background-color: #074f66;
+  border: 1px solid #074f66;
+  text-decoration: none;
+  color: #fff;
+}
+
+.login-actions {
+  display: inline-flex;
+}
+
+.btn-social{
+  font-weight: normal !important;
+  padding: 6px 46px !important;
+}
