@@ -33,13 +33,27 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    <script type="text/javascript" src="/static/vendors/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/static/vendors/angular-strap/dist/angular-strap.min.js"></script>
+    <script type="text/javascript" src="/static/vendors/angular-strap/dist/angular-strap.tpl.min.js"></script>
+    <script type="text/javascript" src="/static/theme/plugins/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/static/theme/plugins/jquery-migrate-1.2.1.min.js"></script>    
+    <script type="text/javascript" src="/static/theme/plugins/jquery.easing.1.3.js"></script>   
+    <script type="text/javascript" src="/static/theme/plugins/bootstrap/js/bootstrap.min.js"></script>     
+    <script type="text/javascript" src="/static/theme/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script> 
+    <script type="text/javascript" src="/static/theme/js/main.js"></script>
+    <script type="text/javascript">
+          angular.app = angular.module("doss.ie", ['mgcrea.ngStrap']);
+          angular.app.config(function($interpolateProvider){
+              $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
+          });
+    </script>
+    {% block js%}{% endblock %}
     {% block css %}{% endblock %}
-    {% block js %}{% endblock %}
 
     <title>{% block title %}doss.ie - Fiscalize seus candidatos{% endblock %}</title>
 </head>
-<body ng-app>
+<body ng-app="doss.ie">
 <header id="header" class="header">  
     <div class="container">            
         <h1 class="logo pull-left">
@@ -52,20 +66,6 @@
 </header>
 {% block content %}{% endblock %}
 
-<script type="text/javascript" src="/static/vendors/angular/angular.min.js"></script>
-<script type="text/javascript" src="/static/vendors/angular-bootstrap/ui-bootstrap.min.js"></script>
-<script type="text/javascript" src="/static/theme/plugins/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="/static/theme/plugins/jquery-migrate-1.2.1.min.js"></script>    
-<script type="text/javascript" src="/static/theme/plugins/jquery.easing.1.3.js"></script>   
-<script type="text/javascript" src="/static/theme/plugins/bootstrap/js/bootstrap.min.js"></script>     
-<script type="text/javascript" src="/static/theme/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script> 
-<script type="text/javascript" src="/static/theme/js/main.js"></script>
-<script type="text/javascript">
-      window.angular.app = angular.module("doss.ie", []);
-      angular.app.config(function($interpolateProvider){
-          $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
-      });
-    </script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

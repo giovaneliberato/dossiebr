@@ -57,3 +57,11 @@ body {
   font-size: 20px !important;
   color: #fff !important;
 }
+
+.popover {
+  color: #074f66;
+}
+
+.help-block {
+  font-size: 12px;
+}

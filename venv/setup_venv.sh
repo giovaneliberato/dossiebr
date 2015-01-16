@@ -14,8 +14,3 @@ if [ ! -d src/lib ]; then
     echo "Creating Lib symlink"
     ln -s $VIRTUAL_ENV/lib/python2.7/site-packages/ src/lib
 fi
-
-if [ ! -d src/apps ]; then
-    echo "Creating Apps symlink"
-    ln -s $(pwd)/apps/ src/apps
-fi

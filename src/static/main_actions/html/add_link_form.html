@@ -1,0 +1,19 @@
+<div class="popover" tabindex="-1">
+    <div class="arrow"></div>
+    <div class="popover-content">
+        <form name="data.addlinkform" novalidate ng-submit="saveLink($hide)">
+            <p ng-bind-html="content" style="min-width:300px;"></p>
+            <div class="form-group" ng-class="{'has-error': data.addlinkform.link.$invalid && data.addlinkform.link.$dirty}">
+                <label for="">Salvar item no doss.ie</label>
+                <input class="form-control" name="link" type="url" required placeholder="http://..." ng-model="data.link">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="#tags e @candidatos" ng-model="data.tags">
+                <p class="help-block">Associe tags e candidatos a este item.</p>
+            </div>
+            <div class="form-actions text-center">
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>
