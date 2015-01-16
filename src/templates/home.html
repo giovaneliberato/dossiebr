@@ -1,9 +1,56 @@
 {% extends "base/base.html" %}
 
 {% block header %}
-    
+    <nav id="main-nav" class="main-nav" role="navigation">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button><!--//nav-toggle-->
+        </div><!--//navbar-header-->          
+        <div class="navbar-collapse collapse" id="navbar-collapse">
+            <div class="navbar-left main-actions">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item"><a href="#"><i class="fa fa-tag"></i></a></li>
+                    <li class="nav-item"><a href="#"><i class="fa fa-users"></i></a></li>
+                    <li class="nav-item"><a href="#"><i class="fa fa-plus"></i></a></li>
+                    <li class="nav-item"><a href="#"><i class="fa fa-star"></i></a></li>
+                    <li class="nav-item"><a href="#"><i class="fa fa-search"></i></a></li>
+                </ul>
+            </div><!--//navabr-collapse-->
+            <div class="container-fluid navbar-right">
+                
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-cta-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        {{ _logged_user.name }} <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu">
+                        {# <li><a href="#"><i class="fa fa-users"></i> Gerenciar candidatos</a></li> #}
+                        {# <li><a href="#"><i class="fa fa-tag"></i> Gerenciar categorias</a></li> #}
+                        {# <li><a href="#"><i class="fa fa-file"></i> Relatórios</a></li> #}
+                        {# <li class="divider"></li> #}
+                        <li><a href="#">Sair</a></li>
+                      </ul>
+                    </div>
+                </div>
+            </div><!--//navabr-collapse-->
+        </div>
+    </nav><!--//main-nav-->
 {% endblock header %}
 
 {% block content %}
-    Olá {{ _logged_user.name }}
+    <section class="license section">
+        <div class="container">
+            <div class="license-inner">
+            <h2 class="title text-center">Seja bem vindo, {{ _logged_user.name }}!</h2>
+                <div class="info">
+                    <p>Estamos muito contentes de saber que você se interessou pela plataforma!</p>
+                    <p>Aqui você poderá guardar e organizar todas as notícias dos políticos do seu interesse para avaliá-los nas próximas eleições. Assim, poderemos decidir nosso voto baseado em fatos e ninguém mais vai acreditar naquelas promessas fantasiosas de campanha.</p>
+                    <p>Que tal começar <a href="#">adicionando uma notícia</a> ou <a href="#">criando uma tag</a>?</p>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}
