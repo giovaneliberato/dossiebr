@@ -65,3 +65,10 @@ body {
 .help-block {
   font-size: 12px;
 }
+
+.top {
+  width: 400px;
+  position: absolute;
+  text-align: center;
+  margin-left: 25%;
+}

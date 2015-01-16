@@ -43,7 +43,7 @@
     <script type="text/javascript" src="/static/theme/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script> 
     <script type="text/javascript" src="/static/theme/js/main.js"></script>
     <script type="text/javascript">
-          angular.app = angular.module("doss.ie", ['mgcrea.ngStrap']);
+          angular.app = angular.module("doss.ie", {% block ng_deps %}[]{% endblock %});
           angular.app.config(function($interpolateProvider){
               $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
           });
