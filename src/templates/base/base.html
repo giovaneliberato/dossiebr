@@ -25,7 +25,6 @@
     <link rel="stylesheet" href="/static/vendors/bootstrap-css/css/bootstrap.min.css">
     <!-- Plugins CSS -->    
     <link rel="stylesheet" href="/static/theme/plugins/font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" href="/static/theme/plugins/prism/prism.css">
     <!-- Theme CSS -->  
     <link id="theme-style" rel="stylesheet" href="/static/theme/css/styles.css">
     <link id="theme-style" rel="stylesheet" href="/static/css/custom.css">
@@ -40,7 +39,7 @@
 
     <title>{% block title %}doss.ie - Fiscalize seus candidatos{% endblock %}</title>
 </head>
-<body>
+<body ng-app>
 <header id="header" class="header">  
     <div class="container">            
         <h1 class="logo pull-left">
@@ -53,13 +52,20 @@
 </header>
 {% block content %}{% endblock %}
 
+<script type="text/javascript" src="/static/vendors/angular/angular.min.js"></script>
+<script type="text/javascript" src="/static/vendors/angular-bootstrap/ui-bootstrap.min.js"></script>
 <script type="text/javascript" src="/static/theme/plugins/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="/static/theme/plugins/jquery-migrate-1.2.1.min.js"></script>    
 <script type="text/javascript" src="/static/theme/plugins/jquery.easing.1.3.js"></script>   
 <script type="text/javascript" src="/static/theme/plugins/bootstrap/js/bootstrap.min.js"></script>     
 <script type="text/javascript" src="/static/theme/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script> 
-<script type="text/javascript" src="/static/theme/plugins/prism/prism.js"></script>    
 <script type="text/javascript" src="/static/theme/js/main.js"></script>
+<script type="text/javascript">
+      window.angular.app = angular.module("doss.ie", []);
+      angular.app.config(function($interpolateProvider){
+          $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
+      });
+    </script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
