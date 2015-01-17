@@ -11,16 +11,21 @@ mod.directive('thumbnailGrid', function(){
                 if (!$scope.articles) return;
 
                 $scope.splittedArticles = []
-                while ($scope.articles.length) {
-                    $scope.splittedArticles.push($scope.articles.splice(0, 3))
+                var articles = $scope.articles.slice(0);
+                while (articles.length) {
+                    $scope.splittedArticles.push(articles.splice(0, 3))
                 }
+            }
+
+            $scope.addArticleToGrid = function(url){
+                $scope.articles.unshift(url);
+                $scope.splitArticles();
             }
 
             HomeRestApi.getUserArticles().success(function(data){
                 $scope.articles = data.articles;
+                $scope.splitArticles();
             })
-
-            $scope.$watch('articles', $scope.splitArticles)
         }
     }
     
