@@ -19,23 +19,34 @@ class Article(Node):
             article.put()
         return article
 
+    def find_tags(self):
+        return ArticleTag.find_origins(self)
+
+    def find_mentions(self):
+        return ArticleMention.find_origins(self)
+
 
 class BaseTag(Node):
     name = ndb.StringProperty(required=True)
 
     @classmethod
     def find_or_create(cls, name):
-        tag = cls.query(name == name).get()
+        tag = cls.query(cls.name == name).get()
         if not tag:
             tag = cls(name=name)
+            tag.put()
         return tag
+
+    @classmethod
+    def find_by_article(cls, article_key):
+        return cls.find_destinations(article_key)
 
 
 class Tag(BaseTag):
     pass
 
 
-class Mention(Node):
+class Mention(BaseTag):
     pass
 
 
