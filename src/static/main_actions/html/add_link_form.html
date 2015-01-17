@@ -8,9 +8,11 @@
                 <input class="form-control" name="link" type="url" required placeholder="http://..." ng-model="data.url">
             </div>
             <div class="form-group">
-                <ui-select multiple tagging tagging-label="(Criar marcação)" ng-model="data.tags" theme="select2" style="width: 244px;">
+                <ui-select multiple tagging tagging-label="(Criar marcação)" ng-model="data.tags"
+                           theme="select2" style="width: 244px;" reset-search-input="true">
                     <ui-select-match placeholder="#tags e @candidatos">{[{ $item }]}</ui-select-match>
-                    <ui-select-choices repeat="tag in data.foundTags | searchTags: $select">
+                    <ui-select-choices repeat="tag in data.foundTags track by $index | addHashPrefix: $select"
+                        refresh="searchTags($select.search)" refresh-delay="0">
                       {[{ tag }]}
                     </ui-select-choices>
                 </ui-select>

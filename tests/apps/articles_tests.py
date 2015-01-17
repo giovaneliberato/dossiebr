@@ -40,3 +40,13 @@ class CoreTest(GAETestCase):
         core.tag_article(article, [], mentions)
         self.assertEquals(2, models.Mention.query().count())
         self.assertEquals(3, models.ArticleMention.query().count())
+
+    def test_get_tag_or_mention_by_prefix(self):
+        mommy.save_one(models.Tag, name='#tag1')
+        mommy.save_one(models.Tag, name='#tag2')
+
+        found_tags = core.find_tags_by_prefix('#tag')
+        self.assertEquals(2, found_tags.count())
+
+        found_tags = core.find_tags_by_prefix('#tag1')
+        self.assertEquals(1, found_tags.count())

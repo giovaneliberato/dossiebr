@@ -30,3 +30,7 @@ def tag_article(article, tags, mentions):
         to_save.append(ArticleMention(origin=mention, destination=article))
 
     ndb.put_multi(to_save)
+
+
+def find_tags_by_prefix(prefix):
+    return Tag.find_by_prefix(prefix)

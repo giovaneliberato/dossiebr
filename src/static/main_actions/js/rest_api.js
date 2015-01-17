@@ -14,9 +14,14 @@ app.factory('HomeRestApi', function($http){
         return $http.post("/articles/article/list", {});
     }
 
+    function searchTags(prefix) {
+        return $http.post("/articles/tag/search_tags", {prefix: prefix})
+    }
+
     return {
         saveLink: saveLink,
         getPreviewData: getPreviewData,
         getUserArticles: getUserArticles,
+        searchTags: searchTags,
     };
 });

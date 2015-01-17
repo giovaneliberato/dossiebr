@@ -41,6 +41,10 @@ class BaseTag(Node):
     def find_by_article(cls, article_key):
         return cls.find_destinations(article_key)
 
+    @classmethod
+    def find_by_prefix(cls, prefix):
+        return cls.query().filter(cls.name >= prefix, cls.name < prefix + u'\ufffd')
+
 
 class Tag(BaseTag):
     pass

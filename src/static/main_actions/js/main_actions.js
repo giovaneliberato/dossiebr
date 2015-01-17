@@ -46,15 +46,23 @@ mod.directive('addLink', function() {
                     })
                 }                
             }
+
+            $scope.searchTags = function(prefix){
+                if (!prefix) return;
+
+                return HomeRestApi.searchTags(prefix).then(function(result){
+                    $scope.data.foundTags = result.data;
+                });
+            }
         }
     }
 })
 
-mod.filter('searchTags', function() {
-  return function(items, select) {
-    if (select.search[0] != "#" && select.search[0] != "@" && select.search.length > 1){
-        select.search = "#" + select.search;
-    }
-    return [];
-  };
+mod.filter('addHashPrefix', function() {
+    return function(items, select) {
+        if (select.search[0] != "#" && select.search[0] != "@" && select.search.length > 0){
+            select.search = "#" + select.search;
+        }
+        return items;
+    };
 });

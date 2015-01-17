@@ -36,3 +36,8 @@ indexes:
   - name: class
   - name: creation
     direction: desc
+
+- kind: Node
+  properties:
+  - name: class
+  - name: name
