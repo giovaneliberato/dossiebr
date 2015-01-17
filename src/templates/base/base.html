@@ -42,14 +42,14 @@
     <script type="text/javascript" src="/static/theme/plugins/bootstrap/js/bootstrap.min.js"></script>     
     <script type="text/javascript" src="/static/theme/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script> 
     <script type="text/javascript" src="/static/theme/js/main.js"></script>
+    {% block js%}{% endblock %}
+    {% block css %}{% endblock %}
     <script type="text/javascript">
           angular.app = angular.module("doss.ie", {% block ng_deps %}[]{% endblock %});
           angular.app.config(function($interpolateProvider){
               $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
           });
     </script>
-    {% block js%}{% endblock %}
-    {% block css %}{% endblock %}
 
     <title>{% block title %}doss.ie - Fiscalize seus candidatos{% endblock %}</title>
 </head>

@@ -5,17 +5,17 @@ from gaegraph.model import Node, Arc
 
 
 class Article(Node):
-    link = ndb.StringProperty(required=True)
+    url = ndb.StringProperty(required=True)
 
     @classmethod
-    def get_by_link(cls, link):
-        return cls.query(cls.link == link).get()
+    def get_by_url(cls, url):
+        return cls.query(cls.url == url).get()
 
     @classmethod
-    def get_or_create(cls, link):
-        article = cls.get_by_link(link)
+    def get_or_create(cls, url):
+        article = cls.get_by_url(url)
         if not article:
-            article = cls(link=link)
+            article = cls(url=url)
             article.put()
         return article
 

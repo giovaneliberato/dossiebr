@@ -1,12 +1,12 @@
 
-var app = angular.app;
+var mod = angular.module('MainActions', ['mgcrea.ngStrap', 'MainActionsApi']);
 
-app.directive('addLink', function() {
+mod.directive('addLink', function() {
     return {
         restrict: 'E',
         replace: true,
         templateUrl: "/static/main_actions/html/add_link.html",
-        controller: function($scope, $alert, $http) {
+        controller: function($scope, $alert, $http, MainActionsApi) {
             $scope.data = {};
             $scope.form = {};
             $scope.successAlertOptions = {
@@ -22,8 +22,7 @@ app.directive('addLink', function() {
 
             $scope.saveLink = function(callback){
                 if ($scope.form.addlinkform.$valid) {
-                    $http.post('/actions/link/save', {link:$scope.data.link,
-                                                  tags:$scope.data.tags}).
+                    MainActionsApi.saveLink($scope.data.url, $scope.data.tags).
                     success(function(){
                         $alert($scope.successAlertOptions);
                         callback();
@@ -35,3 +34,6 @@ app.directive('addLink', function() {
         }
     }
 })
+
+
+mod.directive()

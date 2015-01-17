@@ -5,7 +5,7 @@
             <p ng-bind-html="content" style="min-width:300px;"></p>
             <div class="form-group" ng-class="{'has-error': data.addlinkform.link.$invalid && data.addlinkform.link.$dirty}">
                 <label for="">Salvar item no doss.ie</label>
-                <input class="form-control" name="link" type="url" required placeholder="http://..." ng-model="data.link">
+                <input class="form-control" name="link" type="url" required placeholder="http://..." ng-model="data.url">
             </div>
             <div class="form-group">
                 <input class="form-control" type="text" placeholder="#tags e @candidatos" ng-model="data.tags">

@@ -1,11 +1,13 @@
-var app = angular.actions_app;
+var app = angular.module('MainActionsApi', []);
 
-app.factory('MainActionsApi', function(){
-    function save_link(link, tags){
-       return $.post('/actions/link/save', {link:link, tags:tags})
+app.factory('MainActionsApi', function($http){
+    function saveLink(url, tags){
+       return $http.post('/actions/link/save', {url:url, tags:tags})
     }
 
+    function getPreviewData(url)
+
     return {
-        save_link: save_link
+        saveLink: saveLink
     };
 });
