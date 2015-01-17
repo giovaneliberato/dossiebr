@@ -1,8 +1,8 @@
 <div class="container">
     <div class="row clearfix">
         <div class="col-md-12 column">
-            <div class="row" ng-repeat="article_slice in articles">
-                <div ng-repeat="article in article_slice">
+            <div class="row" ng-repeat="articleSlice in splittedArticles">
+                <div ng-repeat="article in articleSlice">
                     <thumbnail url="article"></thumbnail>
                 </div>
             </div>

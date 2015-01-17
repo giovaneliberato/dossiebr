@@ -6,14 +6,21 @@ mod.directive('thumbnailGrid', function(){
         restrict: 'E',
         replace: true,
         templateUrl: "/static/main_actions/html/thumbnail_grid.html",
-        scope: {},
         controller: function($scope, HomeRestApi) {
+            $scope.splitArticles = function(){
+                if (!$scope.articles) return;
+
+                $scope.splittedArticles = []
+                while ($scope.articles.length) {
+                    $scope.splittedArticles.push($scope.articles.splice(0, 3))
+                }
+            }
+
             HomeRestApi.getUserArticles().success(function(data){
-                $scope.articles = [];
-                while (data.articles.length) {
-                    $scope.articles.push(data.articles.splice(0, 3))
-                }                
+                $scope.articles = data.articles;
             })
+
+            $scope.$watch('articles', $scope.splitArticles)
         }
     }
     

@@ -27,6 +27,7 @@ mod.directive('addLink', function() {
                         callback();
                         $scope.form.addlinkform.submitted = true;
                         $scope.data = {}
+                        $scope.articles.insert(0, $scope.data.url);
                     })
                     HomeRestApi.getPreviewData($scope.data.url).success(function(data){
                         console.log(data);
