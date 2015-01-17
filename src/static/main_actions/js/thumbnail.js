@@ -37,13 +37,13 @@ mod.directive('thumbnail', function(){
         replace: true,
         templateUrl: "/static/main_actions/html/thumbnail.html",
         scope: {
-            url: '=',
+            article: '=',
         },
         controller: function($scope, HomeRestApi) {
-            HomeRestApi.getPreviewData($scope.url).success(function(data){
-                $scope.title = data.title;
-                $scope.description = data.description;
-                $scope.thumbnail_url = data.thumbnail_url;
+            HomeRestApi.getPreviewData($scope.article.url).success(function(data){
+                $scope.article.title = data.title;
+                $scope.article.description = data.description;
+                $scope.article.thumbnail_url = data.thumbnail_url;
             })
         }
     }

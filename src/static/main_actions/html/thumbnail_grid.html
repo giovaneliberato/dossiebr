@@ -3,7 +3,7 @@
         <div class="col-md-12 column">
             <div class="row" ng-repeat="articleSlice in splittedArticles">
                 <div ng-repeat="article in articleSlice track by $index">
-                    <thumbnail url="article"></thumbnail>
+                    <thumbnail article="article"></thumbnail>
                 </div>
             </div>
         </div>

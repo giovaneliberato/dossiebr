@@ -25,21 +25,11 @@ class CoreTest(GAETestCase):
         tags = ['#communism_rules', '#SP']
         mentions = ['@Eneas', 'Plínio']
 
-        core.tag_article(article, [tags[0]], [])
-        self.assertEquals(1, models.Tag.query().count())
-        self.assertEquals(1, models.ArticleTag.query().count())
-
         core.tag_article(article, tags, [])
         self.assertEquals(2, models.Tag.query().count())
-        self.assertEquals(3, models.ArticleTag.query().count())
-
-        core.tag_article(article, [], [mentions[0]])
-        self.assertEquals(1, models.Mention.query().count())
-        self.assertEquals(1, models.ArticleMention.query().count())
+        self.assertEquals(2, models.ArticleTag.query().count())
 
         core.tag_article(article, [], mentions)
-        self.assertEquals(2, models.Mention.query().count())
-        self.assertEquals(3, models.ArticleMention.query().count())
 
     def test_get_tag_or_mention_by_prefix(self):
         mommy.save_one(models.Tag, name='#tag1')

@@ -60,7 +60,7 @@ class ArticleUser(Arc):
         return -cls.creation
 
     @classmethod
-    def get_by_user(cls, user, limit_by=20):
+    def get_by_user(cls, user, limit_by=1000):
         return cls.find_destinations(user).fetch(limit_by)
 
 

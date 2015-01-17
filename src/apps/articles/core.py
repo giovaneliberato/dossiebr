@@ -12,7 +12,19 @@ def associate_user_with_article(user, article):
 
 
 def list_by_user(user):
-    return [a.destination.get().url for a in ArticleUser.get_by_user(user)]
+    articles = []
+    articles_relations = ArticleUser.get_by_user(user)
+    for ralation in articles_relations:
+        article = ralation.destination.get()
+        tags = [t.origin.get().name for t in article.find_tags()]
+        mentions = [m.origin.get().name for m in article.find_mentions()]
+        articles.append({
+            'url': article.url,
+            'tags': tags,
+            'mentions': mentions
+            }
+        )
+    return articles
 
 
 def user_has_article(user):

@@ -4,8 +4,8 @@ from articles import core
 
 
 def save(_logged_user, url, tags=None):
-    tags = [tag for tag in tags if tag.startswith('#')]
     mentions = [tag for tag in tags if tag.startswith('@')]
+    tags = [tag for tag in tags if tag.startswith('#')]
     article = core.find_or_create_article(url)
     core.tag_article(article, tags, mentions)
     core.associate_user_with_article(_logged_user, article)
