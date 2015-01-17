@@ -1,5 +1,5 @@
 
-var mod = angular.module('MainActions', ['mgcrea.ngStrap', 'HomeRestApi']);
+var mod = angular.module('MainActions', ['mgcrea.ngStrap', 'HomeRestApi', 'ui.select']);
 
 mod.directive('addLink', function() {
     return {
@@ -9,6 +9,7 @@ mod.directive('addLink', function() {
         controller: function($scope, $alert, HomeRestApi) {
             $scope.data = {};
             $scope.form = {};
+            $scope.data.foundTags = [];
             $scope.successAlertOptions = {
                 animation: "am-fade-and-slide-top",
                 content: 'Seu item foi salvo com sucesso!',
@@ -40,6 +41,7 @@ mod.directive('addLink', function() {
                         $scope.data = {};
                         $scope.addArticleToGrid(url);
                     }).error(function(){
+                        callback();
                         $alert($scope.errorAlertOptions);
                     })
                 }                
@@ -47,3 +49,12 @@ mod.directive('addLink', function() {
         }
     }
 })
+
+mod.filter('searchTags', function() {
+  return function(items, select) {
+    if (select.search[0] != "#" && select.search[0] != "@" && select.search.length > 1){
+        select.search = "#" + select.search;
+    }
+    return [];
+  };
+});

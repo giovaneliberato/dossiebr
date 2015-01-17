@@ -1,8 +1,9 @@
+import core
 from models import Article, ArticleUser
 
 
 def get_or_create_article(url):
-    return Article.get_or_create(url)
+    return Article.find_or_create(url)
 
 
 def associate_user_with_article(user, article):
@@ -15,3 +16,7 @@ def list_by_user(user):
 
 def user_has_article(user):
     return ArticleUser.find_destinations(user).count() > 0
+
+
+def tag_article(article, tags, mentions):
+    return core.tag_article(article, tags, mentions)

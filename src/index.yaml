@@ -13,6 +13,14 @@ indexes:
 - kind: Arc
   properties:
   - name: class
+  - name: destination
+  - name: origin
+  - name: creation
+    direction: desc
+
+- kind: Arc
+  properties:
+  - name: class
   - name: origin
   - name: creation
 
