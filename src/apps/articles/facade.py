@@ -10,7 +10,7 @@ def associate_user_with_article(user, article):
 
 
 def list_by_user(user):
-    return ArticleUser.get_by_user(user)
+    return [a.destination.get().url for a in ArticleUser.get_by_user(user)]
 
 
 def user_has_article(user):

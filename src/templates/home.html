@@ -1,11 +1,12 @@
 {% extends "base/base.html" %}
 
 {% block js %}
-    <script type="text/javascript" src="/static/main_actions/js/main_actions.js"></script>
     <script type="text/javascript" src="/static/main_actions/js/rest_api.js"></script>
+    <script type="text/javascript" src="/static/main_actions/js/main_actions.js"></script>
+    <script type="text/javascript" src="/static/main_actions/js/thumbnail.js"></script>
 {% endblock js %}
 
-{% block ng_deps %}['MainActions']{% endblock %}
+{% block ng_deps %}['MainActions', 'Thumbnails']{% endblock %}
 
 {% block header %}
     <nav id="main-nav" class="main-nav" role="navigation">
@@ -48,18 +49,20 @@
 
 {% block content %}
     <section class="license section">
-        <div class="container">
-            <div class="license-inner">
-            {% if not has_article %}
-                <h2 class="title text-center">Seja bem vindo, {{ _logged_user.name }}!</h2>
-                    <div class="info">
-                        <p>Estamos muito contentes de saber que você se interessou pela plataforma!</p>
-                        <p>Aqui você poderá guardar e organizar todas as notícias dos políticos do seu interesse para avaliá-los nas próximas eleições. Assim, poderemos decidir nosso voto baseado em fatos e ninguém mais vai acreditar naquelas promessas fantasiosas de campanha.</p>
-                        <p>Que tal começar <a href="#">adicionando uma notícia</a> ou <a href="#">criando uma tag</a>?</p>
+        {% if not has_article %}
+            <div class="container">
+                <div class="license-inner">
+                    <h2 class="title text-center">Seja bem vindo, {{ _logged_user.name }}!</h2>
+                        <div class="info">
+                            <p>Estamos muito contentes de saber que você se interessou pela plataforma!</p>
+                            <p>Aqui você poderá guardar e organizar todas as notícias dos políticos do seu interesse para avaliá-los nas próximas eleições. Assim, poderemos decidir nosso voto baseado em fatos e ninguém mais vai acreditar naquelas promessas fantasiosas de campanha.</p>
+                            <p>Que tal começar <a href="#">adicionando uma notícia</a> ou <a href="#">criando uma tag</a>?</p>
+                        </div>
                     </div>
                 </div>
-            {% endif %}
             </div>
-        </div>
+        {% else %}
+            <thumbnail-grid></thumbnail-grid>
+        {% endif %}
     </section>
 {% endblock %}

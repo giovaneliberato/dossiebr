@@ -1,17 +1,16 @@
 
-var mod = angular.module('MainActions', ['mgcrea.ngStrap', 'MainActionsApi']);
+var mod = angular.module('MainActions', ['mgcrea.ngStrap', 'HomeRestApi']);
 
 mod.directive('addLink', function() {
     return {
         restrict: 'E',
         replace: true,
         templateUrl: "/static/main_actions/html/add_link.html",
-        controller: function($scope, $alert, $http, MainActionsApi) {
+        controller: function($scope, $alert, $http, HomeRestApi) {
             $scope.data = {};
             $scope.form = {};
             $scope.successAlertOptions = {
                 animation: "am-fade-and-slide-top",
-                container: ".container",
                 content: 'Seu item foi salvo com sucesso!',
                 placement: 'top',
                 type: 'success',
@@ -22,18 +21,18 @@ mod.directive('addLink', function() {
 
             $scope.saveLink = function(callback){
                 if ($scope.form.addlinkform.$valid) {
-                    MainActionsApi.saveLink($scope.data.url, $scope.data.tags).
+                    HomeRestApi.saveLink($scope.data.url, $scope.data.tags).
                     success(function(){
                         $alert($scope.successAlertOptions);
                         callback();
                         $scope.form.addlinkform.submitted = true;
                         $scope.data = {}
                     })
+                    HomeRestApi.getPreviewData($scope.data.url).success(function(data){
+                        console.log(data);
+                    })
                 }                
             }
         }
     }
 })
-
-
-mod.directive()

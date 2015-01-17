@@ -27,4 +27,4 @@ class Tag(Node):
 class ArticleUser(Arc):
     @classmethod
     def get_by_user(cls, user, limit_by=20):
-        return cls.find_destination(user).fetch(limit_by)
+        return cls.find_destinations(user).fetch(limit_by)
