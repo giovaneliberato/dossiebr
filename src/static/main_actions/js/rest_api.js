@@ -18,10 +18,15 @@ app.factory('HomeRestApi', function($http){
         return $http.post("/articles/tag/search_tags", {prefix: prefix})
     }
 
+    function searchArticles(search_string) {
+        return $http.post("/articles/article/search", {search_string: search_string})
+    }
+
     return {
         saveLink: saveLink,
         getPreviewData: getPreviewData,
         getUserArticles: getUserArticles,
         searchTags: searchTags,
+        searchArticles: searchArticles
     };
 });

@@ -1,6 +1,6 @@
 from google.appengine.ext import ndb
 
-from models import Article, ArticleUser, Tag, Mention, ArticleTag, ArticleMention, BaseTag
+from models import Article, ArticleUser, Tag, Mention, BaseTag
 
 
 def find_or_create_article(url):
@@ -16,14 +16,7 @@ def list_by_user(user):
     articles_relations = ArticleUser.get_by_user(user)
     for ralation in articles_relations:
         article = ralation.destination.get()
-        tags = [t.origin.get().name for t in article.find_tags()]
-        mentions = [m.origin.get().name for m in article.find_mentions()]
-        articles.append({
-            'url': article.url,
-            'tags': tags,
-            'mentions': mentions
-            }
-        )
+        articles.append(article.to_dict())
     return articles
 
 
@@ -31,18 +24,27 @@ def user_has_article(user):
     return ArticleUser.find_destinations(user).count() > 0
 
 
-def tag_article(article, tags, mentions):
+def tag_article(user, article, tags, mentions):
     to_save = []
     for tag_name in tags:
-        tag = Tag.find_or_create(tag_name)
-        to_save.append(ArticleTag(origin=tag, destination=article))
+        tag = Tag.find_by_name(tag_name, user.key, article.key)
+        if not tag:
+            to_save.append(
+                Tag(name=tag_name, origin=user.key, destination=article.key))
 
     for mention_name in mentions:
-        mention = Mention.find_or_create(mention_name)
-        to_save.append(ArticleMention(origin=mention, destination=article))
+        mention = Mention.find_by_name(mention_name, user.key, article.key)
+        if not mention:
+            to_save.append(
+                Mention(name=mention_name, origin=user.key, destination=article.key))
 
     ndb.put_multi(to_save)
 
 
 def find_tags_by_prefix(prefix):
     return BaseTag.find_by_prefix(prefix)
+
+
+def search_articles(search_string):
+    tags = find_tags_by_prefix(search_string)
+    return [t.destination.get().to_dict() for t in tags]

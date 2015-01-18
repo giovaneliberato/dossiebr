@@ -1,0 +1,16 @@
+<div class="popover" tabindex="-1" style="width: 400px;">
+    <div class="arrow"></div>
+    <div class="popover-content">
+        <form name="form.searchForm" novalidate ng-submit="searchArticles($hide)">
+            <p ng-bind-html="content"></p>
+            <div class="form-group" ng-class="{'has-error': form.searchForm.search.$invalid && form.searchForm.$dirty}">
+                <label for="">Buscar por #tag ou @candidato</label>
+                <input class="form-control" name="search" type="text" required ng-model="data.searchString">
+            </div>
+            <div class="form-actions text-center">
+                <button type="submit" class="btn btn-default" ng-click="cleanSearch(); $hide()">Limpar busca</button>
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </div>
+        </form>
+    </div>
+</div>

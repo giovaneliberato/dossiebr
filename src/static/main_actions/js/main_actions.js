@@ -70,3 +70,26 @@ mod.filter('addHashPrefix', function() {
         return items;
     };
 });
+
+mod.directive('search', function() {
+    return {
+        restrict: 'E',
+        replace: true,
+        templateUrl: "/static/main_actions/html/search.html",
+        controller: function($scope, HomeRestApi) {
+            $scope.searchArticles = function(){
+                $scope.originalArticles = $scope.articles;
+                if ($scope.form.searchForm.$valid) {
+                    HomeRestApi.searchArticles($scope.data.searchString).success(function(data){
+                        $scope.articles = data.articles;
+                        $scope.splitArticles();
+                    })
+                }
+            }
+            $scope.cleanSearch = function(){
+                $scope.articles = $scope.originalArticles;
+                $scope.splitArticles();
+            }
+        }
+    }
+})

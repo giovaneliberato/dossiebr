@@ -20,22 +20,29 @@ class Article(Node):
         return article
 
     def find_tags(self):
-        return ArticleTag.find_origins(self)
+        return Tag.find_origins(self)
 
     def find_mentions(self):
-        return ArticleMention.find_origins(self)
+        return Mention.find_origins(self)
+
+    def to_dict(self):
+        tags = [t.name for t in self.find_tags()]
+        mentions = [m.name for m in self.find_mentions()]
+        return {
+            'url': self.url,
+            'tags': tags,
+            'mentions': mentions
+        }
 
 
-class BaseTag(Node):
+class BaseTag(Arc):
     name = ndb.StringProperty(required=True)
 
     @classmethod
-    def find_or_create(cls, name):
-        tag = cls.query(cls.name == name).get()
-        if not tag:
-            tag = cls(name=name)
-            tag.put()
-        return tag
+    def find_by_name(cls, name, origin, destination):
+        return cls.query(cls.name == name,
+                         cls.origin == origin,
+                         cls.destination == destination).get()
 
     @classmethod
     def find_by_article(cls, article_key):
@@ -62,11 +69,3 @@ class ArticleUser(Arc):
     @classmethod
     def get_by_user(cls, user, limit_by=1000):
         return cls.find_destinations(user).fetch(limit_by)
-
-
-class ArticleTag(Arc):
-    pass
-
-
-class ArticleMention(Arc):
-    pass

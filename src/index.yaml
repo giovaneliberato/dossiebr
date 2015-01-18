@@ -27,6 +27,11 @@ indexes:
 - kind: Arc
   properties:
   - name: class
+  - name: name
+
+- kind: Arc
+  properties:
+  - name: class
   - name: origin
   - name: creation
 
