@@ -51,19 +51,10 @@
           });
     </script>
 
-    <title>{% block title %}doss.ie - Fiscalize seus candidatos{% endblock %}</title>
+    <title>{% block title %}Dossie Brasil - Fiscalize seus candidatos{% endblock %}</title>
 </head>
 <body ng-app="doss.ie">
-<header id="header" class="header">  
-    <div class="container">            
-        <h1 class="logo pull-left">
-            <a class="scrollto" href="/">
-                <span class="logo-title">doss.ie</span>
-            </a>
-        </h1><!--//logo-->              
-        {% block header %}{% endblock header %}
-    </div>
-</header>
+{% block header %}{% endblock header %}
 {% block content %}{% endblock %}
 
 <script>

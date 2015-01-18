@@ -1,6 +1,6 @@
 from google.appengine.ext import ndb
 
-from models import Article, ArticleUser, Tag, Mention, ArticleTag, ArticleMention
+from models import Article, ArticleUser, Tag, Mention, ArticleTag, ArticleMention, BaseTag
 
 
 def find_or_create_article(url):
@@ -45,4 +45,4 @@ def tag_article(article, tags, mentions):
 
 
 def find_tags_by_prefix(prefix):
-    return Tag.find_by_prefix(prefix)
+    return BaseTag.find_by_prefix(prefix)

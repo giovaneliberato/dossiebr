@@ -45,14 +45,12 @@ body {
 }
 
 .main-actions {
-  width: 70%;
-  margin: 0 auto;
+  position: absolute;
+  width: 100%;
+  left: 43%;
+  text-align: center;
+  margin: auto;
 }
-
-.main-actions ul{
-  margin-left: 45%;
-}
-
 .main-actions a {
   font-size: 20px !important;
   color: #fff !important;
@@ -76,4 +74,37 @@ body {
 .thumbnail_img {
   width: 200px;
   height: 200px !importante;
+}
+
+.img-loader {
+  display: block;
+  margin-top: 25px;
+}
+
+.thumbnail {
+  min-height: 100px;
+}
+.thumbnail img {
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+.logo-highlight {
+  color: #074f66;
+}
+.navbar-nav.navbar-right:last-child{
+  margin-right: 30px;
+}
+.logo {
+  margin-left: 30px !important;
+  font-size: 26px;
+  font-weight: 700;
+}
+.navbar-default {
+  background-color: #17baef;
+  border-color: #17baef;
+}
+.navbar-default a {
+  font-family: 'Montserrat', sans-serif;
+  color: #fff !important;
 }

@@ -4,7 +4,7 @@
         <form name="form.addlinkform" novalidate ng-submit="saveLink($hide)">
             <p ng-bind-html="content"></p>
             <div class="form-group" ng-class="{'has-error': form.addlinkform.link.$invalid && form.addlinkform.$dirty}">
-                <label for="">Salvar item no doss.ie</label>
+                <label for="">Salvar item</label>
                 <input class="form-control" name="link" type="url" required placeholder="http://..." ng-model="data.url">
             </div>
             <div class="form-group">
@@ -12,7 +12,7 @@
                            theme="select2" style="width: 244px;" reset-search-input="true">
                     <ui-select-match placeholder="#tags e @candidatos">{[{ $item }]}</ui-select-match>
                     <ui-select-choices repeat="tag in data.foundTags track by $index | addHashPrefix: $select"
-                        refresh="searchTags($select.search)" refresh-delay="0">
+                        refresh="searchTags($select.search)" refresh-delay="0" ng-blur="$element.close()">
                       {[{ tag }]}
                     </ui-select-choices>
                 </ui-select>

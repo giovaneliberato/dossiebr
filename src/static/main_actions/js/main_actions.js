@@ -33,13 +33,14 @@ mod.directive('addLink', function() {
             $scope.saveLink = function(callback){
                 if ($scope.form.addlinkform.$valid) {
                     var url = $scope.data.url;
+                    var tags = $scope.data.tags;
                     HomeRestApi.saveLink(url, $scope.data.tags).
                     success(function(){
                         $alert($scope.successAlertOptions);
                         callback();
                         $scope.form.addlinkform.submitted = true;
                         $scope.data = {};
-                        $scope.addArticleToGrid(url);
+                        $scope.addArticleToGrid(url, tags);
                     }).error(function(){
                         callback();
                         $alert($scope.errorAlertOptions);

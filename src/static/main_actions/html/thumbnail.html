@@ -1,14 +1,19 @@
 <div class="col-md-4">
     <div class="thumbnail">
-        <img ng-src="http://wit.wurfl.io/w_300/h_200/m__cropbox/{[{ article.thumbnail_url }]}"/>
-        <p class="thumbnail_img" ng-hide="thumbnail_url"><i class="fa fa globe fa-3x"></i></p>
-        <div class="caption">
-            <h3><a href="{[{ article.url }]}" target="_blank">{[{ article.title }]}</a></h3>
-            <p>{[{ description | limitTo: 100}]}</p>
-            <p>
-                <small ng-repeat="tag in article.tags track by $index">{[{ tag }]} </small>
-                <small ng-repeat="mention in article.mentions track by $index">{[{ mention }]} </small>
-            </p>
+        <div ng-hide="article.title">
+            <img class="img-loader" src="/static/svg/loading.svg" alt="Carregando..." height="32" fill="gray" />
+        </div>
+        <div ng-show="article.title">
+            <img ng-src="{[{ article.thumbnail_url }]}"/>
+            <p class="thumbnail_img" ng-hide="article.thumbnail_url"><i class="fa fa globe fa-3x"></i></p>
+            <div class="caption">
+                <h3><a href="{[{ article.url }]}" target="_blank">{[{ article.title }]}</a></h3>
+                <p>{[{ article.description | limitTo: 100}]}... <a class="pull-right" href="{[{ article.url }]}">continue lendo >></a></p>
+                <p>
+                    <small ng-repeat="tag in article.tags track by $index">{[{ tag }]} </small>
+                    <small ng-repeat="mention in article.mentions track by $index">{[{ mention }]} </small>
+                </p>
+            </div>
         </div>
     </div>
 </div>

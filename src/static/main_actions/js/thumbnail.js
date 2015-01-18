@@ -17,8 +17,10 @@ mod.directive('thumbnailGrid', function(){
                 }
             }
 
-            $scope.addArticleToGrid = function(url){
-                $scope.articles.unshift(url);
+            $scope.addArticleToGrid = function(url, tags){
+                var mentions = tags.filter(function(tag){ return tag[0] === '@'});
+                var tags = tags.filter(function(tag){ return tag[0] === '#'});
+                $scope.articles.unshift({'url': url, 'tags': tags, 'mentions': mentions});
                 $scope.splitArticles();
             }
 
@@ -43,8 +45,26 @@ mod.directive('thumbnail', function(){
             HomeRestApi.getPreviewData($scope.article.url).success(function(data){
                 $scope.article.title = data.title;
                 $scope.article.description = data.description;
-                $scope.article.thumbnail_url = data.thumbnail_url;
+                var url = $scope.getImageUrl(data.thumbnail_url);
+                $scope.article.thumbnail_url = url;
             })
+
+            $scope.getImageUrl = function(url){
+                var defaultImg = 'http://lorempixel.com/g/300/150/abstract/';
+                var imgServiceUrl = 'http://wit.wurfl.io/w_300/h_200/m_cropbox/';
+                var articleImgUrl = imgServiceUrl + url;
+
+                if (!url)
+                    return defaultImg;
+                
+                request = new XMLHttpRequest();
+                request.open("GET", articleImgUrl, false);
+                request.send(null);
+                if (request.status != 200)
+                    return defaultImg;
+
+                return articleImgUrl;
+            }
         }
     }
 })
