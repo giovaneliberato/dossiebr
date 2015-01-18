@@ -18,6 +18,7 @@ mod.directive('thumbnailGrid', function(){
             }
 
             $scope.addArticleToGrid = function(url, tags){
+                tags = tags ? tags : [];
                 var mentions = tags.filter(function(tag){ return tag[0] === '@'});
                 var tags = tags.filter(function(tag){ return tag[0] === '#'});
                 $scope.articles.unshift({'url': url, 'tags': tags, 'mentions': mentions});

@@ -47,7 +47,7 @@ body {
 .main-actions {
   position: absolute;
   width: 100%;
-  left: 43%;
+  left: 44%;
   text-align: center;
   margin: auto;
 }
@@ -100,11 +100,21 @@ body {
   font-size: 26px;
   font-weight: 700;
 }
-.navbar-default {
+.navbar-custom {
   background-color: #17baef;
   border-color: #17baef;
 }
-.navbar-default a {
+.navbar-custom a {
   font-family: 'Montserrat', sans-serif;
   color: #fff !important;
+}
+.navbar-custom .nav>li>a:hover, .navbar-custom .nav>li>a:focus{
+  background-color: #17baef;
+}
+.dropdown-menu a {
+  color: #444444 !important;
+}
+.alert {
+  top: 58px;
+  margin-left: 35%;
 }

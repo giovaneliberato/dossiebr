@@ -15,6 +15,7 @@ mod.directive('addLink', function() {
                 content: 'Seu item foi salvo com sucesso!',
                 placement: 'top',
                 type: 'success',
+                container: '.section',
                 show: true,
                 keyboard: true,
                 duration: 3
@@ -24,8 +25,9 @@ mod.directive('addLink', function() {
                 animation: "am-fade-and-slide-top",
                 content: 'Ocorreu um erro e nossa equipe foi avisada. Por favor, tente novamente.',
                 placement: 'top',
-                type: 'error',
+                type: 'danger',
                 show: true,
+                container: '.section',
                 keyboard: true,
                 duration: 4
             }
@@ -41,6 +43,7 @@ mod.directive('addLink', function() {
                         $scope.form.addlinkform.submitted = true;
                         $scope.data = {};
                         $scope.addArticleToGrid(url, tags);
+                        $scope.data.foundTags = [];
                     }).error(function(){
                         callback();
                         $alert($scope.errorAlertOptions);

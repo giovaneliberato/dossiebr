@@ -3,7 +3,7 @@ from tekton.gae.middleware.json_middleware import JsonResponse
 from articles import core
 
 
-def save(_logged_user, url, tags=None):
+def save(_logged_user, url, tags=[]):
     mentions = [tag for tag in tags if tag.startswith('@')]
     tags = [tag for tag in tags if tag.startswith('#')]
     article = core.find_or_create_article(url)

@@ -1,0 +1,27 @@
+{% extends "home.html" %}
+
+{% block content %}    
+    <section class="license section">
+        <div class="container">
+            <div class="license-inner">
+                <h2 class="title text-center">Como estamos indo, {{ _logged_user.name }}?</h2>
+                    <div class="info">
+                            <div class="row clearfix">
+                                <div class="col-md-12 column">
+                                    <form role="form" action="/feedback/home/enviar" method="POST">
+                                        {{ csrf_input() }}
+                                        <div class="form-group">
+                                             <label for="feedback_text">Mensagem</label>
+                                             <textarea class="form-control" rows="4" required name="text"></textarea>
+                                        </div>
+                                        <a href="javascript:history.back();" class="btn btn-default">Voltar</a>
+                                        <button type="submit" class="btn btn-primary">Enviar</button>
+                                    </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}
