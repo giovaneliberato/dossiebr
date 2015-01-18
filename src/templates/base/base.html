@@ -45,7 +45,7 @@
     {% block js%}{% endblock %}
     {% block css %}{% endblock %}
     <script type="text/javascript">
-          angular.app = angular.module("doss.ie", {% block ng_deps %}[]{% endblock %});
+          angular.app = angular.module("dossiebr", {% block ng_deps %}[]{% endblock %});
           angular.app.config(function($interpolateProvider){
               $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
           });
@@ -53,7 +53,7 @@
 
     <title>{% block title %}Dossie Brasil - Fiscalize seus candidatos{% endblock %}</title>
 </head>
-<body ng-app="doss.ie">
+<body ng-app="dossiebr">
 {% block header %}{% endblock header %}
 {% block content %}{% endblock %}
 

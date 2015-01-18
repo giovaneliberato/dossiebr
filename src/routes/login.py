@@ -3,6 +3,13 @@ from gaepermission.decorator import login_not_required
 from gaecookie.decorator import no_csrf
 from google.appengine.api import users
 from tekton.gae.middleware.redirect import RedirectResponse
+from config.template_middleware import TemplateResponse
+
+
+@no_csrf
+@login_not_required
+def index():
+    return TemplateResponse({}, 'login.html')
 
 
 @no_csrf
