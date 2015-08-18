@@ -1,32 +1,36 @@
-Tekton Template App
+Dossiê BR
 ==================
 
-This is a simple app I use to quick start any project using [Tekton](https://github.com/renzon/tekton-micro) + Google App Engine
+O doss.ie é uma plataforma que te ajuda a fiscalizar as promessas e resultados do seu candidato. Com ele você pode arquivar e gerenciar as notícias de um determinado candidato e receber periodicamente um resumo destas notícias por email.
+
+#### Tech Stack
+- [Google App Engine](https://cloud.google.com/appengine/docs)
+- Python
+- AngularJS
+- [Tekton](https://github.com/renzon/tekton-micro)
 
 #### Requirements
 - [virtualenvwrapper](http://virtualenvwrapper.readthedocs.org)
 
-### Usage
-##### Clone this repo
+### Instalação
+##### Clonar repositório
 ```shell
-$ git clone git@github.com:giovaneliberato/tekton-templateapp.git {{ YOUR_APP_NAME }}
+$ git clone git@github.com:giovaneliberato/dossiebr.git
 ```
 
-##### Go to your project folder and create a virtual env using virtualenvwrapper
+##### Vá para o diretório do projeto e crie um virtual environment
 
 ```shell
-$ cd {{ YOUR_APP_NAME }}
-$ mkvirtualenv {{ YOUR_APP_NAME }}
+$ cd dossiebr
+$ mkvirtualenv dossiebr
 ```
 
-##### Run the setup script
+##### Script de setup
 ```shell
 $ ./venv/setup_venv.sh
 ```
 
-##### You're ready to go! Run server
+##### Rodar servidor local
 ```shell
 $ ./runlocal.sh
 ```
-
-Now it's time to code. Core code goes inside apps folder and request handlers goes inside src/routes.
