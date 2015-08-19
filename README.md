@@ -1,7 +1,7 @@
 Dossiê BR
 ==================
 
-O doss.ie é uma plataforma que te ajuda a fiscalizar as promessas e resultados do seu candidato. Nela você pode arquivar e gerenciar as notícias de um determinado candidato e receber periodicamente um resumo destas notícias por email.
+O dossiebr é uma plataforma que te ajuda a fiscalizar as promessas e resultados do seu candidato. Nela você pode arquivar e gerenciar as notícias de um determinado candidato e receber periodicamente um resumo destas notícias por email.
 
 #### Tech Stack
 - [Google App Engine](https://cloud.google.com/appengine/docs)
