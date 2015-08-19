@@ -1,15 +1,17 @@
 Dossiê BR
 ==================
 
-O doss.ie é uma plataforma que te ajuda a fiscalizar as promessas e resultados do seu candidato. Com ele você pode arquivar e gerenciar as notícias de um determinado candidato e receber periodicamente um resumo destas notícias por email.
+O doss.ie é uma plataforma que te ajuda a fiscalizar as promessas e resultados do seu candidato. Nela você pode arquivar e gerenciar as notícias de um determinado candidato e receber periodicamente um resumo destas notícias por email.
 
 #### Tech Stack
 - [Google App Engine](https://cloud.google.com/appengine/docs)
-- Python
-- AngularJS
+- Python 2.7
 - [Tekton](https://github.com/renzon/tekton-micro)
+- AngularJS
 
 #### Requirements
+- Python 2.7
+- [Bower](http://bower.io/)
 - [virtualenvwrapper](http://virtualenvwrapper.readthedocs.org)
 
 ### Instalação
